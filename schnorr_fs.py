@@ -21,10 +21,6 @@ def int_to_bytes(x: int, length: int) -> bytes:
     return x.to_bytes(length, "big")
 
 
-def encode_scalar(params: Parameters, x: Fq) -> bytes:
-    return int_to_bytes(x.value, params.q_len)
-
-
 def encode_element(params: Parameters, g: GroupElement) -> bytes:
     return int_to_bytes(g.value, params.p_len)
 
