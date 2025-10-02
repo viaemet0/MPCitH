@@ -10,7 +10,6 @@ class Fq:
         self.q = q
         self.value = value % q
 
-    # --- 基本算術 ---
     def _check(self, other: "Fq"):
         if not isinstance(other, Fq) or self.q != other.q:
             raise TypeError("Mismatched Fq modulus.")
@@ -45,7 +44,6 @@ class Fq:
     def inv(self) -> "Fq":
         return Fq(pow(self.value, -1, self.q), self.q)
 
-    # --- ビット演算 ---
     def __and__(self, other: "Fq") -> "Fq":
         self._check(other)
         return Fq(self.value & other.value, self.q)
@@ -54,7 +52,6 @@ class Fq:
         self._check(other)
         return Fq(self.value | other.value, self.q)
 
-    # --- 比較 ---
     def __eq__(self, other) -> bool:
         return isinstance(other, Fq) and self.q == other.q and self.value == other.value
 
