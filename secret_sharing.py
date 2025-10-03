@@ -17,12 +17,16 @@ class FieldShare:
 
     def exp(self, g: GroupElement) -> "GroupShare":
         if g.q != self.q:
-            raise ValueError("Mismatch between field modulus q and group order q.")
+            raise ValueError(
+                "Mismatch between field modulus q and group order q."
+            )
         exp_shares = [g**s.value for s in self.shares]
         return GroupShare(exp_shares, g.p, g.q)
 
     @classmethod
-    def additive_secret_sharing(cls, secret: int, n: int, q: int) -> "FieldShare":
+    def additive_secret_sharing(
+        cls, secret: int, n: int, q: int
+    ) -> "FieldShare":
         if n < 2:
             raise ValueError("Number of shares n must be >= 2.")
         shares = [Fq(0, q) for _ in range(n)]

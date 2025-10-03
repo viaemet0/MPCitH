@@ -61,7 +61,9 @@ def keygen(params: Parameters) -> KeyPair:
     return KeyPair(x=x, y=y)
 
 
-def sign(params: Parameters, x: Fq, y: GroupElement, message: bytes) -> Signature:
+def sign(
+    params: Parameters, x: Fq, y: GroupElement, message: bytes
+) -> Signature:
     """
     Schnorr→FS変換→署名:
       1) r ←$ Z_q
@@ -77,7 +79,9 @@ def sign(params: Parameters, x: Fq, y: GroupElement, message: bytes) -> Signatur
     return Signature(u=u, c=c, z=z)
 
 
-def verify(params: Parameters, y: GroupElement, message: bytes, sig: Signature) -> bool:
+def verify(
+    params: Parameters, y: GroupElement, message: bytes, sig: Signature
+) -> bool:
     c2 = compute_challenge(params, y, sig.u, message)
     if sig.c != c2:
         return False

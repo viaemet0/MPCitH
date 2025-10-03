@@ -53,7 +53,11 @@ class Fq:
         return Fq(self.value | other.value, self.q)
 
     def __eq__(self, other) -> bool:
-        return isinstance(other, Fq) and self.q == other.q and self.value == other.value
+        return (
+            isinstance(other, Fq)
+            and self.q == other.q
+            and self.value == other.value
+        )
 
     def __lt__(self, other) -> bool:
         self._check(other)
