@@ -171,13 +171,13 @@ class MqProblem(MpProblem):
 
 if __name__ == "__main__":
     # 線形
-    mp_linear = MpProblem(n=5, m=3, q=31, deg=1)
-    print(mp_linear)
+    # mp_linear = MpProblem(n=5, m=3, q=31, deg=1)
+    # print(mp_linear)
 
     # MQ
     mq = MqProblem(n=2, m=4, q=31)
     print(mq)
 
     # 3次
-    mp_cubic = MpProblem(n=3, m=2, q=31, deg=3)
-    print(mp_cubic)
+    # mp_cubic = MpProblem(n=3, m=2, q=31, deg=3)
+    # print(mp_cubic)
