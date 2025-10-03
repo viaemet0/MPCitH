@@ -5,8 +5,8 @@ class Fq:
     __slots__ = ("value", "q")
 
     def __init__(self, value: int, q: int):
-        if q < 3:
-            raise ValueError("q must be a prime >= 3.")
+        if q < 2:
+            raise ValueError("q must be a prime >= 2.")
         self.q = q
         self.value = value % q
 
