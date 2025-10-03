@@ -13,9 +13,9 @@ MPCitH 証明生成
 3. g^{share} を計算し全公開
 4. ランダムに 1 パーティ隠し他を開示
 
-MPCitH は、[MPC](#mpc-を仮想的に実行) から構築した[ゼロ知識証明を Fiat-Shamir 変換することで署名方式を構築](#シュノア識別プロトコルschnorrs-identification-protocol)するフレームワークである。
+MPCitH は、以下に示している技術の、[MPC](#mpcmulti-party-computationを仮想的に実行) から構築した[ゼロ知識証明を Fiat-Shamir 変換することで署名方式を構築](#シュノア識別プロトコルschnorrs-identification-protocol)するフレームワークである。
 
-## MPC を仮想的に実行
+## MPC（Multi-Party Computation）を仮想的に実行
 
 ```bash
 python3 secret_sharing.py
@@ -44,11 +44,13 @@ python3 schnorr_fs.py
 python3 mq_problem.py
 ```
 
-多変数多項式求解問題（MP 問題; 連立方程式を解くような問題）のうち、すべての項の次数が 2 となるのが「MQ 問題」と呼ばれる。
+多変数多項式求解問題（MP 問題; 連立方程式を解く問題）のうち、各多項式の次数が最大で 2 であるものを一般に「MQ 問題」と呼ぶ。
 
-MPCitH の方式のひとつである[MQ on my Mind (MQOM)](https://mqom.org/)は、この MQ 問題の困難性に基づいている。
+MPCitH の方式のひとつである [MQ on my Mind (MQOM)](https://mqom.org/) は、MQ 問題の計算困難性を利用して構成される。
 
 ## 参考文献
 
 - [https://www.cryptrec.go.jp/report/cryptrec-gl-2007-2024.pdf](https://www.cryptrec.go.jp/report/cryptrec-gl-2007-2024.pdf)
 - [https://csrc.nist.gov/csrc/media/Projects/post-quantum-cryptography/documents/pqc-seminars/presentations/13-intro-mpc-in-the-head-05212024.pdf](https://csrc.nist.gov/csrc/media/Projects/post-quantum-cryptography/documents/pqc-seminars/presentations/13-intro-mpc-in-the-head-05212024.pdf)
+- [https://www.gavo.t.u-tokyo.ac.jp/~mine/japanese/IT/Takagi_20181226.pdf](https://www.gavo.t.u-tokyo.ac.jp/~mine/japanese/IT/Takagi_20181226.pdf)
+- 高木剛 著. 暗号と量子コンピュータ : 耐量子計算機暗号入門, オーム社, 2019.8. 978-4-274-22410-2. [https://ndlsearch.ndl.go.jp/books/R100000002-I029871173](https://ndlsearch.ndl.go.jp/books/R100000002-I029871173)
