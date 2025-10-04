@@ -167,6 +167,14 @@ class MpProblem:
 class MqProblem(MpProblem):
     def __init__(self, n: int, m: int, q: int):
         super().__init__(n=n, m=m, q=q, deg=2)
+        self.A: List[List[List[Fq]]] = []
+        self.b: List[List[Fq]] = []
+        self.y: List[Fq] = []
+        forms = self.mq_to_matrix_vector()
+        for f in forms:
+            self.A.append(f["A"])
+            self.b.append(f["b"])
+            self.y.append(f["y"])
 
 
 if __name__ == "__main__":
