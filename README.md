@@ -6,6 +6,21 @@
 python3 mpcith.py
 ```
 
+<details>
+<summary>実行結果</summary>
+
+```bash
+公開鍵 y = 18354465632584
+メッセージ: b'Hello MPC-in-the-Head'
+署名の証明数: 50
+署名は有効
+--- 改ざん検知 ---
+Round 1: Challenge mismatch
+改ざん検知成功
+```
+
+</details>
+
 MPCitH 証明生成
 
 1. 秘密を加法型秘密分散
