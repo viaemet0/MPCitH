@@ -6,9 +6,6 @@
 python3 mpcith.py
 ```
 
-<details opened>
-<summary>実行結果</summary>
-
 ```bash
 公開鍵 y = 18354465632584
 メッセージ: b'Hello MPC-in-the-Head'
@@ -18,8 +15,6 @@ python3 mpcith.py
 Round 1: Challenge mismatch
 改ざん検知成功
 ```
-
-</details>
 
 MPCitH 証明生成
 
@@ -34,6 +29,15 @@ MPCitH は、以下に示している技術の、[MPC](#mpcmulti-party-computati
 
 ```bash
 python3 secret_sharing.py
+```
+
+```bash
+g^42 = 44297456736
+FieldShare = [Fq(82 mod 163), Fq(14 mod 163), Fq(147 mod 163), Fq(98 mod 163), Fq(27 mod 163)]
+reconstruct = 42
+GroupShare = [GroupElement(32541919874 mod 50857683791), GroupElement(28961208938 mod 50857683791), GroupElement(40869685257 mod 50857683791), GroupElement(20239889543 mod 50857683791), GroupElement(9463779890 mod 50857683791)]
+product = 44297456736
+ok
 ```
 
 1. 加法型秘密分散法（Additive Secret Sharing）で秘密 x を`n`個のシェア（`x_1,x_2,...,x_n`）に分散
@@ -51,12 +55,31 @@ python3 secret_sharing.py
 python3 schnorr_fs.py
 ```
 
+```bash
+公開鍵 y = 1518902272723967863669890105839591477644211597460852197034
+メッセージ = b'Hello Schnorr'
+署名: (u=2344591716106405827104733872735240967034872954588326111797, c=664897452803676259314387341447007669025840972427, z=1026468641905427409698695352320983466588123611769)
+```
+
 ゼロ知識証明を Fiat-Shamir 変換し、署名とする例
 
 ## MQ 問題
 
 ```bash
 python3 mq_problem.py
+```
+
+```bash
+MQ Problem(n=2, m=4, q=31, deg=2), Variables: (x1, x2) in F_31^2
+    p1(x1, x2) = 26      (where: p1(x) = 1 + 17*x1 + 29*x2 + 12*x1*x1 + 4*x1*x2 + 22*x2*x2)
+    p2(x1, x2) = 14      (where: p2(x) = 27 + 27*x1 + 10*x2 + 12*x1*x1 + 30*x1*x2 + 26*x2*x2)
+    p3(x1, x2) = 9       (where: p3(x) = 3 + 23*x1 + 22*x2 + 30*x1*x1 + 30*x1*x2 + 22*x2*x2)
+    p4(x1, x2) = 5       (where: p4(x) = 9 + 11*x1 + 9*x2 + 2*x1*x1 + x1*x2 + 20*x2*x2)
+Matrix form:
+    x A1 x^T + x b1^T = 25       (where: 12*x1^2 + 4*x1*x2 + 22*x2^2 + 17*x1 + 29*x2)
+    x A2 x^T + x b2^T = 18       (where: 12*x1^2 + 30*x1*x2 + 26*x2^2 + 27*x1 + 10*x2)
+    x A3 x^T + x b3^T = 6        (where: 30*x1^2 + 30*x1*x2 + 22*x2^2 + 23*x1 + 22*x2)
+    x A4 x^T + x b4^T = 27       (where: 2*x1^2 + 1*x1*x2 + 20*x2^2 + 11*x1 + 9*x2)
 ```
 
 多変数多項式求解問題（MP 問題; 連立方程式を解く問題）のうち、各多項式の次数が最大で 2 であるものを一般に「MQ 問題」と呼ぶ。
