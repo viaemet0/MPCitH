@@ -6,7 +6,7 @@
 python3 mpcith.py
 ```
 
-<details>
+<details opened>
 <summary>実行結果</summary>
 
 ```bash

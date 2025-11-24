@@ -1,4 +1,5 @@
 import secrets
+
 import galois
 
 _GALOIS_GF_CACHE = {}

@@ -1,10 +1,11 @@
+import hashlib
 from dataclasses import dataclass
 from typing import List, Tuple
-import hashlib
-from group import generate_parameters, GroupElement, Parameters
-from secret_sharing import FieldShare, GroupShare
-from schnorr_fs import encode_message, int_to_bytes
+
 from finite_field import Fq
+from group import GroupElement, Parameters, generate_parameters
+from schnorr_fs import encode_message, int_to_bytes
+from secret_sharing import FieldShare
 
 
 @dataclass(frozen=True)

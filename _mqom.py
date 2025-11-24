@@ -1,8 +1,8 @@
 from dataclasses import dataclass
-from schnorr_fs import int_to_bytes
+from typing import List
+
 from finite_field import Fq, FqN
 from mq_problem import MqProblem
-from typing import List
 
 
 @dataclass(frozen=True)

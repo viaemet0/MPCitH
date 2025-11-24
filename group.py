@@ -1,6 +1,8 @@
 import secrets
 from dataclasses import dataclass
-from sympy import randprime, isprime
+
+from sympy import isprime, randprime
+
 from finite_field import Fq
 
 
