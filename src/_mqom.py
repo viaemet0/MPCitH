@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
-from finite_field import Fq, FqN
-from mq_problem import MqProblem
+from .finite_field import Fq, FqN
+from .mq_problem import MqProblem
 
 
 @dataclass(frozen=True)

@@ -3,7 +3,7 @@
 ## MPCitH
 
 ```bash
-python3 mpcith.py
+python3 -m src.mpcith
 ```
 
 ```bash
@@ -28,7 +28,7 @@ MPCitH は、以下に示している技術の、[MPC](#mpcmulti-party-computati
 ## MPC（Multi-Party Computation）を仮想的に実行
 
 ```bash
-python3 secret_sharing.py
+python3 -m src.secret_sharing
 ```
 
 ```bash
@@ -52,7 +52,7 @@ ok
 ## シュノア識別プロトコル（Schnorr’s identification protocol）
 
 ```bash
-python3 schnorr_fs.py
+python3 -m src.schnorr_fs
 ```
 
 ```bash
@@ -66,7 +66,7 @@ python3 schnorr_fs.py
 ## MQ 問題
 
 ```bash
-python3 mq_problem.py
+python3 -m src.mq_problem
 ```
 
 ```bash

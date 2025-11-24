@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from itertools import combinations_with_replacement
 from typing import Dict, List, Tuple
 
-from finite_field import Fq
+from .finite_field import Fq
 
 Monomial = Tuple[int, ...]
 

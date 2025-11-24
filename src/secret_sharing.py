@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
-from finite_field import Fq
-from group import GroupElement, generate_parameters
+from .finite_field import Fq
+from .group import GroupElement, generate_parameters
 
 
 @dataclass(frozen=True)

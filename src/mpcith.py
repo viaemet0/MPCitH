@@ -2,10 +2,16 @@ import hashlib
 from dataclasses import dataclass
 from typing import List, Tuple
 
-from finite_field import Fq
-from group import GroupElement, Parameters, generate_parameters
-from schnorr_fs import encode_message, int_to_bytes
-from secret_sharing import FieldShare
+from .finite_field import Fq
+from .group import GroupElement, Parameters, generate_parameters
+from .schnorr_fs import encode_message, int_to_bytes
+from .secret_sharing import FieldShare
+
+
+@dataclass(frozen=True)
+class KeyPair:
+    secret: int
+    public: GroupElement
 
 
 @dataclass(frozen=True)
@@ -179,13 +185,20 @@ def sign(
     return WholeSignature(proofs=proofs, challenge_seed=digest)
 
 
+def keygen(params: Parameters) -> KeyPair:
+    x = Fq.random(params.q)
+    y = params.g**x
+    return KeyPair(secret=x.value, public=y)
+
+
 if __name__ == "__main__":
     params = generate_parameters(q_bits=16)
-    secret = 42
+    key_pair = keygen(params)
+    secret = key_pair.secret
+    y = key_pair.public
     party_num = 5
     repetition = 50
 
-    y = params.g**secret
     message = b"Hello MPC-in-the-Head"
 
     print(f"公開鍵 y = {y.value}")

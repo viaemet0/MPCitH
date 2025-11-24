@@ -1,8 +1,8 @@
 import hashlib
 from dataclasses import dataclass
 
-from finite_field import Fq
-from group import GroupElement, Parameters, generate_parameters
+from .finite_field import Fq
+from .group import GroupElement, Parameters, generate_parameters
 
 
 @dataclass(frozen=True)
