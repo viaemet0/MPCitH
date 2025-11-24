@@ -15,3 +15,13 @@ repos:
     rev: 7.0.0
     hooks:
       - id: isort
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run Tests (pytest)
+        entry: .venv/bin/python -m pytest
+        language: system
+        types: [python]
+        pass_filenames: false
+        always_run: true
